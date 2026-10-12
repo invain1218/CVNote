@@ -274,3 +274,30 @@ plt.axis('off')
 
 plt.tight_layout()
 plt.show()
+
+# 图像合成
+img_add_cv2 = cv2.add(img_periodic, img_gau) # OpenCV 加法，溢出截断
+img_addweighted_cv2 = cv2.addWeighted(img_periodic, 0.5, img_gau, 0.5, 0) # OpenCV 加权平均
+img_subtract_cv2 = cv2.subtract(img_periodic, img_gau) # OpenCV 减法，溢出截断
+img_absdiff_cv2 = cv2.absdiff(img_periodic, img_gau) # OpenCV 绝对差
+
+plt.figure(figsize=(12, 6))
+plt.subplot(2, 2, 1)
+plt.imshow(img_add_cv2, cmap='gray')
+plt.title("OpenCV Add")
+plt.axis('off')
+plt.subplot(2, 2, 2)
+plt.imshow(img_addweighted_cv2, cmap='gray')
+plt.title("OpenCV AddWeighted")
+plt.axis('off')
+plt.subplot(2, 2, 3)
+plt.imshow(img_subtract_cv2, cmap='gray')
+plt.title("OpenCV Subtract")
+plt.axis('off')
+plt.subplot(2, 2, 4)
+plt.imshow(img_absdiff_cv2, cmap='gray')
+plt.title("OpenCV AbsDiff")
+plt.axis('off')
+plt.tight_layout()
+plt.show()
+
